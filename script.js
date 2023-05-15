@@ -1,6 +1,6 @@
 const API_KEY = "8be1860db359470181e104408231505";
 const root = document.querySelector("#root");
-const API_CITY = "Budapest";
+let API_CITY = "Budapest";
 
 async function getFetch(url) {
   const response = await fetch(url);
@@ -20,11 +20,22 @@ function getElements() {
       `http://api.weatherapi.com/v1/current.json?key=8be1860db359470181e104408231505&q=${API_CITY}`
     );
 
+    const main = document.createElement("main");
+    main.classList.add("main");
+
     const section = document.createElement("section");
     section.classList.add("section");
 
     const h1 = document.createElement("h1");
     h1.innerText = response.location.name;
+
+    const condition = document.createElement("img");
+    condition.classList.add("condition");
+    condition.src = response.current.condition.icon;
+
+    const condition1 = document.createElement("p");
+    condition1.classList.add("condition-text");
+    condition1.innerText = response.current.condition.text;
 
     const temp = document.createElement("section");
     temp.classList.add("temperature");
@@ -52,9 +63,11 @@ function getElements() {
 
     timezone.append(time);
 
-    section.append(h1, temp, hum, timezone);
+    section.append(h1, condition, condition1, temp, hum, timezone);
 
-    root.append(section);
+    main.append(section);
+
+    root.append(main);
   };
 
   const label = document.createElement("label");
@@ -73,29 +86,37 @@ getElements();
 function eventListener() {
   const input = document.querySelector("#input");
 
-  input.addEventListener("input", function (event) {
-    API_CITY = event.target.value;
+  input.addEventListener("change", function (event) {
+    API_CITY = input.value;
 
     let a = async function () {
       let data = await getFetch(
         `http://api.weatherapi.com/v1/current.json?key=8be1860db359470181e104408231505&q=${API_CITY}`
       );
 
-      const root = document.querySelector("#root");
-      root.innerHTML = "";
+      const main = document.querySelector("main");
+      main.innerHTML = "";
 
       const section = document.createElement("section");
       section.classList.add("section");
 
       const h1 = document.createElement("h1");
-      h1.innerText = response.location.name;
+      h1.innerText = data.location.name;
+
+      const condition = document.createElement("img");
+      condition.classList.add("condition");
+      condition.src = data.current.condition.icon;
+
+      const condition1 = document.createElement("p");
+      condition1.classList.add("condition-text");
+      condition1.innerText = data.current.condition.text;
 
       const temp = document.createElement("section");
       temp.classList.add("temperature");
       temp.innerText = "Temperature";
 
       const temperature = document.createElement("div");
-      temperature.innerText = response.current.temp_c;
+      temperature.innerText = data.current.temp_c;
 
       temp.append(temperature);
 
@@ -104,7 +125,7 @@ function eventListener() {
       hum.innerText = "Humidity";
 
       const humidity = document.createElement("div");
-      humidity.innerText = response.current.humidity;
+      humidity.innerText = data.current.humidity;
       hum.append(humidity);
 
       const timezone = document.createElement("section");
@@ -112,14 +133,16 @@ function eventListener() {
       timezone.innerText = "Timezone";
 
       const time = document.createElement("div");
-      time.innerHTML = response.location.tz_id;
+      time.innerHTML = data.location.tz_id;
 
       timezone.append(time);
 
-      section.append(h1, temp, hum, timezone);
+      section.append(h1, condition, condition1, temp, hum, timezone);
+      main.append(section);
 
-      root.append(section);
+      root.append(main);
     };
+
     a();
   });
 }
