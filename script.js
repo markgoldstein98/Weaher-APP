@@ -26,24 +26,62 @@ function getElements() {
     const h1 = document.createElement("h1");
     h1.innerText = response.location.name;
 
-    const temp = document.createElement("div");
-    temp.classList.add("temp");
+    const temp = document.createElement("section");
+    temp.classList.add("temperature");
+    temp.innerText = "Temperature";
 
     const temperature = document.createElement("div");
     temperature.innerText = response.current.temp_c;
+
     temp.append(temperature);
 
+    const hum = document.createElement("section");
+    hum.classList.add("humidity");
+    hum.innerText = "Humidity";
+
     const humidity = document.createElement("div");
-    humidity.classList.add("humidity");
+    humidity.innerText = response.current.humidity;
+    hum.append(humidity);
 
-    const hum = document.createElement("div");
-    hum.innerText = response.current.humidity;
+    const timezone = document.createElement("section");
+    timezone.classList.add("timezone");
+    timezone.innerText = "Timezone";
 
-    humidity.append(hum);
+    const time = document.createElement("div");
+    time.innerHTML = response.location.tz_id;
 
-    section.append(h1, temperature, humidity);
+    timezone.append(time);
+
+    section.append(h1, temp, hum, timezone);
+
     root.append(section);
   };
+
+  const label = document.createElement("label");
+  label.setAttribute("for", "input");
+  label.innerText = "City:";
+
+  const input = document.createElement("input");
+  input.id = "input";
+  input.placeholder = "Please add a city";
+
+  root.append(label, input);
   a();
 }
 getElements();
+
+function eventListener() {
+  const input = document.querySelector("#input");
+
+  input.addEventListener("input", function (event) {
+    API_CITY = event.target.value;
+
+    let a = async function () {
+      let data = await getFetch(
+        `http://api.weatherapi.com/v1/current.json?key=8be1860db359470181e104408231505&q=${API_CITY}`
+      );
+
+      root.innerHTML = "";
+    };
+  });
+}
