@@ -2,6 +2,7 @@ const API_KEY = "8be1860db359470181e104408231505";
 const root = document.querySelector("#root");
 let API_CITY = "Budapest";
 
+// general fetch történik
 async function getFetch(url) {
   const response = await fetch(url);
   const data = await response.json();
@@ -14,6 +15,7 @@ console.log(
   )
 );
 
+// létrehozzuk azt az elemet amit az oldal betöltésénél akarunk látni.
 function getElements() {
   let a = async function () {
     const response = await getFetch(
@@ -90,6 +92,7 @@ function getElements() {
 }
 getElements();
 
+// ez a function ha beütöd a város nevét, változik és kívánt értékkel tér vissza
 function eventListener() {
   const input = document.querySelector("#input");
 
@@ -156,9 +159,7 @@ function eventListener() {
 }
 eventListener();
 
-// API ami meghívja az autocomplete functiont,
-// kell még egy function amibe az eventlister azt vizsgálja ha input keröl bele akkor mi lesz
-// auto complete html form megnézése
+// ez a rész hívja meg az inputnál hogy 3 karakter után, adjon vissza lehetőségeket.
 function inputCitySearch() {
   const input = document.querySelector("#input");
 
@@ -186,3 +187,5 @@ function inputCitySearch() {
   });
 }
 inputCitySearch();
+
+// gomb ami add to favourites-hez adja a várost
