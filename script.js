@@ -72,7 +72,7 @@ function getElements() {
 
   const label = document.createElement("label");
   label.setAttribute("for", "input");
-  label.innerText = "City:";
+  label.innerText = "Weather App:";
 
   const input = document.createElement("input");
   input.id = "input";
