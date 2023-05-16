@@ -167,11 +167,9 @@ function inputCitySearch() {
       let a = async function () {
         let data = await getFetch(
           ` http://api.weatherapi.com/v1/search.json?key=8be1860db359470181e104408231505&q=${API_CITY} `
-          //`http://api.weatherapi.com/v1/current.json?key=8be1860db359470181e104408231505&q=${API_CITY}`
         );
         console.log(data);
 
-        // kéne egy datalistet generálni!
         const dataList = document.querySelector("#search");
         dataList.innerHTML = "";
         for (let i = 0; i < data.length; i++) {
