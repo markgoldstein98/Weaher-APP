@@ -148,7 +148,7 @@ function eventListener() {
       humidity.innerText = data.current.humidity + "💧";
       hum.append(humidity);
 
-      section.append(h1, condition, condition1, temp, hum, windSpeed);
+      section.append(condition, condition1, temp, h1, hum, windSpeed);
       main.append(section);
 
       root.append(main);
