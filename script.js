@@ -42,7 +42,7 @@ function getElements() {
     temp.innerText = "Temperature";
 
     const temperature = document.createElement("div");
-    temperature.innerText = response.current.temp_c;
+    temperature.innerText = response.current.temp_c + "℃";
 
     temp.append(temperature);
 
@@ -51,7 +51,7 @@ function getElements() {
     hum.innerText = "Humidity";
 
     const humidity = document.createElement("div");
-    humidity.innerText = response.current.humidity;
+    humidity.innerText = response.current.humidity + "%";
     hum.append(humidity);
 
     const timezone = document.createElement("section");
@@ -76,9 +76,15 @@ function getElements() {
 
   const input = document.createElement("input");
   input.id = "input";
+  input.name = "input";
+  input.setAttribute("list", "search");
+  input.autocomplete = "off"; //kell ez?
   input.placeholder = "Please add a city";
 
-  root.append(label, input);
+  const dataList = document.createElement("datalist");
+  dataList.id = "search";
+
+  root.append(label, input, dataList);
   a();
 }
 getElements();
@@ -116,7 +122,7 @@ function eventListener() {
       temp.innerText = "Temperature";
 
       const temperature = document.createElement("div");
-      temperature.innerText = data.current.temp_c;
+      temperature.innerText = data.current.temp_c + "°C";
 
       temp.append(temperature);
 
@@ -125,7 +131,7 @@ function eventListener() {
       hum.innerText = "Humidity";
 
       const humidity = document.createElement("div");
-      humidity.innerText = data.current.humidity;
+      humidity.innerText = data.current.humidity + "%";
       hum.append(humidity);
 
       const timezone = document.createElement("section");
@@ -151,3 +157,32 @@ eventListener();
 // API ami meghívja az autocomplete functiont,
 // kell még egy function amibe az eventlister azt vizsgálja ha input keröl bele akkor mi lesz
 // auto complete html form megnézése
+function inputCitySearch() {
+  const input = document.querySelector("#input");
+
+  input.addEventListener("input", function (event) {
+    if (input.value.length >= 3) {
+      API_CITY = event.target.value;
+
+      let a = async function () {
+        let data = await getFetch(
+          ` http://api.weatherapi.com/v1/search.json?key=8be1860db359470181e104408231505&q=${API_CITY} `
+          //`http://api.weatherapi.com/v1/current.json?key=8be1860db359470181e104408231505&q=${API_CITY}`
+        );
+        console.log(data);
+
+        // kéne egy datalistet generálni!
+        const dataList = document.querySelector("#search");
+        dataList.innerHTML = "";
+        for (let i = 0; i < data.length; i++) {
+          const option = document.createElement("option");
+          option.value = data[i].name;
+
+          dataList.append(option);
+        }
+      };
+      a();
+    }
+  });
+}
+inputCitySearch();
