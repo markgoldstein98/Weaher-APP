@@ -35,6 +35,9 @@ input {
 .section {
   display: flex;
   flex-direction: column;
+  border: 3px solid black;
+  border-radius: 30px;
+  padding: 20px;
 }
 
 .section h1 {
