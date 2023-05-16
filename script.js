@@ -39,7 +39,7 @@ function getElements() {
 
     const temp = document.createElement("section");
     temp.classList.add("temperature");
-    temp.innerText = "Temperature";
+    temp.innerText = "";
 
     const temperature = document.createElement("div");
     temperature.innerText = response.current.temp_c + "℃";
@@ -51,19 +51,20 @@ function getElements() {
     hum.innerText = "Humidity";
 
     const humidity = document.createElement("div");
-    humidity.innerText = response.current.humidity + "%";
+    humidity.innerText = response.current.humidity + "💧";
+
     hum.append(humidity);
 
-    const timezone = document.createElement("section");
-    timezone.classList.add("timezone");
-    timezone.innerText = "Timezone";
+    const windSpeed = document.createElement("section");
+    windSpeed.classList.add("wind-speed");
+    windSpeed.innerText = "Wind Speed";
 
-    const time = document.createElement("div");
-    time.innerHTML = response.location.tz_id;
+    const wind = document.createElement("div");
+    wind.innerText = response.current.wind_kph + "💨";
 
-    timezone.append(time);
+    windSpeed.append(wind);
 
-    section.append(h1, condition, condition1, temp, hum, timezone);
+    section.append(condition, condition1, temp, h1, hum, windSpeed);
 
     main.append(section);
 
@@ -130,20 +131,21 @@ function eventListener() {
       hum.classList.add("humidity");
       hum.innerText = "Humidity";
 
+      const windSpeed = document.createElement("section");
+      windSpeed.classList.add("wind-speed");
+      windSpeed.innerText = "Wind Speed";
+
+      const wind = document.createElement("div");
+      wind.innerText = data.current.wind_kph + "💨";
+      windSpeed.append(wind);
+
+      windSpeed.append(wind);
+
       const humidity = document.createElement("div");
-      humidity.innerText = data.current.humidity + "%";
+      humidity.innerText = data.current.humidity + "💧";
       hum.append(humidity);
 
-      const timezone = document.createElement("section");
-      timezone.classList.add("timezone");
-      timezone.innerText = "Timezone";
-
-      const time = document.createElement("div");
-      time.innerHTML = data.location.tz_id;
-
-      timezone.append(time);
-
-      section.append(h1, condition, condition1, temp, hum, timezone);
+      section.append(h1, condition, condition1, temp, hum, windSpeed);
       main.append(section);
 
       root.append(main);
