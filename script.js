@@ -139,7 +139,7 @@ function eventListener() {
       windSpeed.innerText = "Wind Speed";
 
       const wind = document.createElement("div");
-      wind.innerText = data.current.wind_kph + "💨";
+      wind.innerText = data.current.wind_kph + "km/h 💨";
       windSpeed.append(wind);
 
       windSpeed.append(wind);
