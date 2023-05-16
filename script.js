@@ -51,7 +51,7 @@ function getElements() {
     hum.innerText = "Humidity";
 
     const humidity = document.createElement("div");
-    humidity.innerText = response.current.humidity + "💧";
+    humidity.innerText = response.current.humidity + "% 💧";
 
     hum.append(humidity);
 
@@ -60,7 +60,7 @@ function getElements() {
     windSpeed.innerText = "Wind Speed";
 
     const wind = document.createElement("div");
-    wind.innerText = response.current.wind_kph + "💨";
+    wind.innerText = response.current.wind_kph + "km/h 💨";
 
     windSpeed.append(wind);
 

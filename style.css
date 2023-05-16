@@ -5,8 +5,8 @@
 }
 
 body {
-  background-color: #ffdee9;
-  background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+  background-image: url("https://static.vecteezy.com/system/resources/previews/001/226/748/original/colorful-sunset-sky-free-photo.jpg ");
+  background-repeat: cover;
 }
 
 #root {
