@@ -3,10 +3,11 @@ const root = document.querySelector("#root");
 let API_CITY = "Budapest";
 const PEXEL_API_KEY =
   "O9fOrILgaprmSC5L9R0sPBDbDbM8ag4kO7Er0SBCaXiUpZ8hV5AdSFIa";
+let PEXEL_QUERY = "Budapest";
 
 // general fetch történik
-async function getFetch(url) {
-  const response = await fetch(url);
+async function getFetch(url, header) {
+  const response = await fetch(url, header);
   const data = await response.json();
 
   return data;
@@ -190,4 +191,28 @@ function inputCitySearch() {
 }
 inputCitySearch();
 
-// gomb ami add to favourites-hez adja a várost
+// Pexels által létrehozzunk képeket ha rányomunk az inputra és beütjük a várost.
+
+function getPexelsPictures() {
+  const input = document.querySelector("input");
+
+  input.addEventListener("change", async function (event) {
+    PEXEL_QUERY = event.target.value;
+
+    let data = await getFetch(
+      `https://api.pexels.com/v1/search?query=${PEXEL_QUERY}`,
+      {
+        headers: { Authorization: PEXEL_API_KEY }, // a general functionnel ket parametert adtam meg ezért tudom itt a headers második paraméternek beadni
+      }
+    );
+    console.log(data);
+
+    const section = document.querySelector("section");
+    /*   main.innerHTML = ""; */
+    const pexelImg = document.createElement("img");
+    pexelImg.url = data.photos[4];
+
+    section.append(pexelImg);
+  });
+}
+getPexelsPictures();
