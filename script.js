@@ -34,6 +34,10 @@ function getElements() {
     const h1 = document.createElement("h1");
     h1.innerText = response.location.name;
 
+    const h2 = document.createElement("h2");
+    h2.innerText = response.location.country;
+    h2.classList.add("country");
+
     const condition = document.createElement("img");
     condition.classList.add("condition");
     condition.src = response.current.condition.icon;
@@ -69,7 +73,7 @@ function getElements() {
 
     windSpeed.append(wind);
 
-    section.append(condition, condition1, temp, h1, hum, windSpeed);
+    section.append(condition, condition1, temp, h1, h2, hum, windSpeed);
 
     main.append(section);
 
@@ -116,6 +120,10 @@ function eventListener() {
       const h1 = document.createElement("h1");
       h1.innerText = data.location.name;
 
+      const h2 = document.createElement("h2");
+      h2.innerText = response.location.country;
+      h2.classList.add("country");
+
       const condition = document.createElement("img");
       condition.classList.add("condition");
       condition.src = data.current.condition.icon;
@@ -151,7 +159,7 @@ function eventListener() {
       humidity.innerText = data.current.humidity + "💧";
       hum.append(humidity);
 
-      section.append(condition, condition1, temp, h1, hum, windSpeed);
+      section.append(condition, condition1, temp, h1, h2, hum, windSpeed);
       main.append(section);
 
       root.append(main);
@@ -210,7 +218,7 @@ function getPexelsPictures() {
     const section = document.querySelector("section");
     /*   main.innerHTML = ""; */
     const pexelImg = document.createElement("img");
-    pexelImg.url = data.photos[4];
+    pexelImg.url = data.photos[1];
 
     section.append(pexelImg);
   });
