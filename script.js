@@ -218,7 +218,7 @@ function getPexelsPictures() {
     const section = document.querySelector("section");
     /*   main.innerHTML = ""; */
     const pexelImg = document.createElement("img");
-    pexelImg.src = data.photos[10].url;
+    pexelImg.src = data.photos[10].src.original;
 
     section.append(pexelImg);
   });
