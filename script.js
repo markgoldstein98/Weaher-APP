@@ -121,7 +121,7 @@ function eventListener() {
       h1.innerText = data.location.name;
 
       const h2 = document.createElement("h2");
-      h2.innerText = response.location.country;
+      h2.innerText = data.location.country;
       h2.classList.add("country");
 
       const condition = document.createElement("img");
@@ -213,12 +213,12 @@ function getPexelsPictures() {
         headers: { Authorization: PEXEL_API_KEY }, // a general functionnel ket parametert adtam meg ezért tudom itt a headers második paraméternek beadni
       }
     );
-    console.log(data);
+    console.log(data.photos[10]);
 
     const section = document.querySelector("section");
     /*   main.innerHTML = ""; */
     const pexelImg = document.createElement("img");
-    pexelImg.url = data.photos[1];
+    pexelImg.src = data.photos[10].url;
 
     section.append(pexelImg);
   });
