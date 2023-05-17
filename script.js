@@ -1,6 +1,8 @@
 const API_KEY = "8be1860db359470181e104408231505";
 const root = document.querySelector("#root");
 let API_CITY = "Budapest";
+const PEXEL_API_KEY =
+  "O9fOrILgaprmSC5L9R0sPBDbDbM8ag4kO7Er0SBCaXiUpZ8hV5AdSFIa";
 
 // general fetch történik
 async function getFetch(url) {
