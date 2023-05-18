@@ -220,19 +220,16 @@ function getPexelsPictures() {
     console.log(data.photos[3]);
 
     const section = document.querySelector("section");
-    /*   main.innerHTML = ""; */
-    const pexelImg = document.createElement("img");
-    pexelImg.classList.add("pexel-img");
-    pexelImg.src = data.photos[3].src.landscape;
 
-    section.append(pexelImg);
+    let backgroundImage = data.photos[3].src.large2x;
+    root.style.backgroundImage = `url(${backgroundImage})`;
   });
 }
 getPexelsPictures();
 
-// add to favorits button
+// add to favorit button
 
-function addToFavorites() {
+/* function addToFavorites() {
   const but = document.querySelector(".button");
 
   but.addEventListener("click", function (event) {
@@ -259,4 +256,4 @@ function addToFavorites() {
     data();
   });
 }
-addToFavorites();
+addToFavorites(); */
