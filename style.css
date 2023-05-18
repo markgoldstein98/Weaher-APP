@@ -5,8 +5,8 @@
 }
 
 body {
-  background-image: url("https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?cs=srgb&dl=pexels-pixabay-209831.jpg&fm=jpg");
-  /* "https://static.vecteezy.com/system/resources/previews/001/226/748/original/colorful-sunset-sky-free-photo.jpg " */
+  background-image: url("https://static.vecteezy.com/system/resources/previews/001/226/748/original/colorful-sunset-sky-free-photo.jpg ");
+
   background-repeat: no-repeat;
 }
 
@@ -45,6 +45,7 @@ input {
   border: 3px solid rgba(244, 244, 244, 0.6);
   border-radius: 30px;
   padding: 20px;
+  gap: 10px;
 }
 
 .section h1 {
