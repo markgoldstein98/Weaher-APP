@@ -71,22 +71,9 @@ function getElements() {
     const wind = document.createElement("div");
     wind.innerText = response.current.wind_kph + "km/h 💨";
 
-    const favorites = document.createElement("button");
-    favorites.innerText = "⭐";
-    favorites.classList.add("button");
-
     windSpeed.append(wind);
 
-    section.append(
-      favorites,
-      condition,
-      condition1,
-      temp,
-      h1,
-      h2,
-      hum,
-      windSpeed
-    );
+    section.append(condition, condition1, temp, h1, h2, hum, windSpeed);
 
     main.append(section);
 
@@ -107,7 +94,11 @@ function getElements() {
   const dataList = document.createElement("datalist");
   dataList.id = "search";
 
-  root.append(label, input, dataList);
+  const favorites = document.createElement("button");
+  favorites.innerText = "⭐";
+  favorites.classList.add("button");
+
+  root.append(label, input, favorites, dataList);
   a();
 }
 getElements();
@@ -129,10 +120,6 @@ function eventListener() {
 
       const section = document.createElement("section");
       section.classList.add("section");
-
-      const favorites = document.createElement("button");
-      favorites.innerText = "⭐";
-      favorites.classList.add("button");
 
       const h1 = document.createElement("h1");
       h1.innerText = data.location.name;
@@ -176,16 +163,7 @@ function eventListener() {
       humidity.innerText = data.current.humidity + "💧";
       hum.append(humidity);
 
-      section.append(
-        favorites,
-        condition,
-        condition1,
-        temp,
-        h1,
-        h2,
-        hum,
-        windSpeed
-      );
+      section.append(condition, condition1, temp, h1, h2, hum, windSpeed);
       main.append(section);
 
       root.append(main);
@@ -251,3 +229,34 @@ function getPexelsPictures() {
   });
 }
 getPexelsPictures();
+
+// add to favorits button
+
+function addToFavorites() {
+  const but = document.querySelector(".button");
+
+  but.addEventListener("click", function (event) {
+    API_CITY = event.target.value;
+
+    let data = async function () {
+      const response = await getFetch(
+        ` http://api.weatherapi.com/v1/search.json?key=8be1860db359470181e104408231505&q=Budapest`
+      ); // miért csak egy várossal működik??? megnézni holnap!
+      console.log(response);
+      const section = document.createElement("section");
+      section.innerText = "My favorite cities:";
+      section.classList.add("section");
+
+      const div = document.createElement("div");
+      div.innerText = response[0].name;
+
+      const div1 = document.createElement("div");
+      div1.innerText = response[0].country;
+
+      section.append(div, div1);
+      root.append(section);
+    };
+    data();
+  });
+}
+addToFavorites();
