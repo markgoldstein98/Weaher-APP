@@ -71,9 +71,22 @@ function getElements() {
     const wind = document.createElement("div");
     wind.innerText = response.current.wind_kph + "km/h 💨";
 
+    const favorites = document.createElement("button");
+    favorites.innerText = "⭐";
+    favorites.classList.add("button");
+
     windSpeed.append(wind);
 
-    section.append(condition, condition1, temp, h1, h2, hum, windSpeed);
+    section.append(
+      favorites,
+      condition,
+      condition1,
+      temp,
+      h1,
+      h2,
+      hum,
+      windSpeed
+    );
 
     main.append(section);
 
@@ -117,6 +130,10 @@ function eventListener() {
       const section = document.createElement("section");
       section.classList.add("section");
 
+      const favorites = document.createElement("button");
+      favorites.innerText = "⭐";
+      favorites.classList.add("button");
+
       const h1 = document.createElement("h1");
       h1.innerText = data.location.name;
 
@@ -159,7 +176,16 @@ function eventListener() {
       humidity.innerText = data.current.humidity + "💧";
       hum.append(humidity);
 
-      section.append(condition, condition1, temp, h1, h2, hum, windSpeed);
+      section.append(
+        favorites,
+        condition,
+        condition1,
+        temp,
+        h1,
+        h2,
+        hum,
+        windSpeed
+      );
       main.append(section);
 
       root.append(main);

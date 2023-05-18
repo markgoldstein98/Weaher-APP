@@ -17,6 +17,8 @@ body {
   align-items: center;
   min-height: 100vh;
   color: whitesmoke;
+
+  min-width: 700px;
 }
 label {
   font-size: x-large;
