@@ -17,12 +17,11 @@ body {
   align-items: center;
   min-height: 100vh;
   color: whitesmoke;
-
   min-width: 700px;
 }
 label {
   font-size: x-large;
-  color: rgb(25, 64, 6);
+  color: rgb(243, 250, 249);
   padding: 20px;
   font-family: "Libre Baskerville", serif;
   font-weight: bolder;
@@ -104,4 +103,5 @@ input {
 
 button:hover {
   opacity: 1;
+  background-color: gold;
 }
