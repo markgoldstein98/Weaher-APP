@@ -218,7 +218,7 @@ function getPexelsPictures() {
     const section = document.querySelector("section");
     /*   main.innerHTML = ""; */
     const pexelImg = document.createElement("img");
-
+    pexelImg.classList.add("pexel-img");
     pexelImg.src = data.photos[8].src.landscape;
 
     section.append(pexelImg);
