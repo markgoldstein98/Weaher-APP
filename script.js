@@ -213,12 +213,13 @@ function getPexelsPictures() {
         headers: { Authorization: PEXEL_API_KEY }, // a general functionnel ket parametert adtam meg ezért tudom itt a headers második paraméternek beadni
       }
     );
-    console.log(data.photos[10]);
+    console.log(data.photos[8]);
 
     const section = document.querySelector("section");
     /*   main.innerHTML = ""; */
     const pexelImg = document.createElement("img");
-    pexelImg.src = data.photos[10].src.original;
+
+    pexelImg.src = data.photos[8].src.landscape;
 
     section.append(pexelImg);
   });

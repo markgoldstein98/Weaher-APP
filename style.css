@@ -15,6 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  color: whitesmoke;
 }
 label {
   font-size: x-large;
@@ -70,4 +71,15 @@ input {
 
 .country {
   text-align: center;
+}
+
+.condition {
+  width: 100px;
+  height: 100px;
+}
+
+img {
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
 }
