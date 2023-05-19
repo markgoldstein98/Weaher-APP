@@ -242,15 +242,16 @@ getPexelsPictures();
 
 // add to favorit button
 
-/* function addToFavorites() {
+function addToFavorites() {
   const but = document.querySelector(".button");
-
+  const input = document.querySelector("input");
+  input.value = API_CITY;
   but.addEventListener("click", function (event) {
-    API_CITY = event.target.value;
+    API_CITY = input.value;
 
     let data = async function () {
       const response = await getFetch(
-        ` http://api.weatherapi.com/v1/search.json?key=8be1860db359470181e104408231505&q=Budapest`
+        ` http://api.weatherapi.com/v1/search.json?key=8be1860db359470181e104408231505&q=${API_CITY}`
       ); // miért csak egy várossal működik??? megnézni holnap!
       console.log(response);
       const section = document.createElement("section");
@@ -269,6 +270,6 @@ getPexelsPictures();
     data();
   });
 }
-addToFavorites(); */
+addToFavorites();
 
 // forecast event!!!
