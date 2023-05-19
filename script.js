@@ -202,11 +202,24 @@ function inputCitySearch() {
   });
 }
 inputCitySearch();
-
 // Pexels által létrehozzunk képeket ha rányomunk az inputra és beütjük a várost.
 
 function getPexelsPictures() {
   const input = document.querySelector("input");
+  const root = document.querySelector("#root");
+  window.addEventListener("load", async function (event) {
+    // a load az a window eventje, ezért itt a windowra tesszük az event listenert.
+    let data = await getFetch(
+      `https://api.pexels.com/v1/search?query=${PEXEL_QUERY}`,
+      {
+        headers: { Authorization: PEXEL_API_KEY }, // a general functionnel ket parametert adtam meg ezért tudom itt a headers második paraméternek beadni
+      }
+    );
+    console.log(data.photos[0]);
+
+    let backgroundImage = data.photos[0].src.large2x;
+    root.style.backgroundImage = `url(${backgroundImage})`;
+  });
 
   input.addEventListener("change", async function (event) {
     PEXEL_QUERY = event.target.value;

@@ -4,12 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background-image: url("https://static.vecteezy.com/system/resources/previews/001/226/748/original/colorful-sunset-sky-free-photo.jpg ");
-
-  background-repeat: no-repeat;
-}
-
 #root {
   display: flex;
   flex-direction: column;
@@ -18,6 +12,7 @@ body {
   min-height: 100vh;
   color: whitesmoke;
   min-width: 700px;
+  background-size: cover;
 }
 label {
   font-size: x-large;
@@ -93,7 +88,7 @@ input {
 .button {
   width: 50px;
   height: 25px;
-  border-radius: 50%;
+  border-radius: 20px;
   background: none;
   border: 1px solid rgb(255, 250, 250);
   margin-left: 250px;
@@ -104,4 +99,7 @@ input {
 button:hover {
   opacity: 1;
   background-color: gold;
+}
+.pexel-pic {
+  background-size: cover;
 }
