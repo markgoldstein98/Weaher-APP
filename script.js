@@ -101,7 +101,7 @@ function getElements() {
   root.append(label, input, favorites, dataList);
   a();
 }
-
+getElements();
 // ez a function ha beütöd a város nevét, változik és kívánt értékkel tér vissza
 function eventListener() {
   const input = document.querySelector("#input");
@@ -171,7 +171,7 @@ function eventListener() {
     a();
   });
 }
-
+eventListener();
 // ez a rész hívja meg az inputnál hogy 3 karakter után, adjon vissza lehetőségeket.
 function inputCitySearch() {
   const input = document.querySelector("#input");
@@ -199,7 +199,7 @@ function inputCitySearch() {
     }
   });
 }
-
+inputCitySearch();
 // Pexels által létrehozzunk képeket ha rányomunk az inputra és beütjük a várost.
 
 function getPexelsPictures() {
@@ -236,7 +236,7 @@ function getPexelsPictures() {
     root.style.backgroundImage = `url(${backgroundImage})`;
   });
 }
-
+getPexelsPictures();
 // add to favorit button
 
 function addToFavorites() {
@@ -267,14 +267,5 @@ function addToFavorites() {
     data();
   });
 }
-
+addToFavorites();
 // forecast event!!!
-
-function main() {
-  getElements();
-  eventListener();
-  inputCitySearch();
-  getPexelsPictures();
-  addToFavorites();
-}
-main();
