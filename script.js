@@ -101,7 +101,6 @@ function getElements() {
   root.append(label, input, favorites, dataList);
   a();
 }
-getElements();
 
 // ez a function ha beütöd a város nevét, változik és kívánt értékkel tér vissza
 function eventListener() {
@@ -172,7 +171,6 @@ function eventListener() {
     a();
   });
 }
-eventListener();
 
 // ez a rész hívja meg az inputnál hogy 3 karakter után, adjon vissza lehetőségeket.
 function inputCitySearch() {
@@ -201,7 +199,7 @@ function inputCitySearch() {
     }
   });
 }
-inputCitySearch();
+
 // Pexels által létrehozzunk képeket ha rányomunk az inputra és beütjük a várost.
 
 function getPexelsPictures() {
@@ -215,9 +213,9 @@ function getPexelsPictures() {
         headers: { Authorization: PEXEL_API_KEY }, // a general functionnel ket parametert adtam meg ezért tudom itt a headers második paraméternek beadni
       }
     );
-    console.log(data.photos[0]);
+    console.log(data.photos[5]);
 
-    let backgroundImage = data.photos[0].src.large2x;
+    let backgroundImage = data.photos[5].src.large2x;
     root.style.backgroundImage = `url(${backgroundImage})`;
   });
 
@@ -234,11 +232,10 @@ function getPexelsPictures() {
 
     const section = document.querySelector("section");
 
-    let backgroundImage = data.photos[3].src.large2x;
+    let backgroundImage = data.photos[5].src.large2x;
     root.style.backgroundImage = `url(${backgroundImage})`;
   });
 }
-getPexelsPictures();
 
 // add to favorit button
 
@@ -256,13 +253,13 @@ function addToFavorites() {
       console.log(response);
       const section = document.createElement("section");
       section.innerText = "My favorite cities:";
-      section.classList.add("section");
+      section.classList.add("favorit-section");
 
       const div = document.createElement("div");
-      div.innerText = response[0].name;
+      div.innerText = response[4].name;
 
       const div1 = document.createElement("div");
-      div1.innerText = response[0].country;
+      div1.innerText = response[5].country;
 
       section.append(div, div1);
       root.append(section);
@@ -270,6 +267,14 @@ function addToFavorites() {
     data();
   });
 }
-addToFavorites();
 
 // forecast event!!!
+
+function main() {
+  getElements();
+  eventListener();
+  inputCitySearch();
+  getPexelsPictures();
+  addToFavorites();
+}
+main();
