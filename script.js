@@ -243,29 +243,25 @@ function addToFavorites() {
   const but = document.querySelector(".button");
   const input = document.querySelector("input");
   input.value = API_CITY;
-  but.addEventListener("click", function (event) {
-    API_CITY = input.value;
+  but.addEventListener("click", async function (event) {
+    const response = await getFetch(
+      `http://api.weatherapi.com/v1/search.json?key=8be1860db359470181e104408231505&q=${API_CITY}`
+    );
+    console.log(response);
+    const favoriteSection = document.createElement("favoriteSection");
+    favoriteSection.innerText = "My favorite cities:";
+    favoriteSection.classList.add("favorite-section");
 
-    let data = async function () {
-      const response = await getFetch(
-        ` http://api.weatherapi.com/v1/search.json?key=8be1860db359470181e104408231505&q=${API_CITY}`
-      ); // miért csak egy várossal működik??? megnézni holnap!
-      console.log(response);
-      const section = document.createElement("section");
-      section.innerText = "My favorite cities:";
-      section.classList.add("favorit-section");
+    const div = document.createElement("div");
+    div.innerText = response[0].name;
 
-      const div = document.createElement("div");
-      div.innerText = response[4].name;
+    const div1 = document.createElement("div");
+    div1.innerText = response[0].country;
 
-      const div1 = document.createElement("div");
-      div1.innerText = response[5].country;
-
-      section.append(div, div1);
-      root.append(section);
-    };
-    data();
+    favoriteSection.append(div, div1);
+    root.append(favoriteSection);
   });
 }
+
 addToFavorites();
 // forecast event!!!
