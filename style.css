@@ -124,4 +124,6 @@ button:hover {
   margin-top: 20px;
   border: 1px solid whitesmoke;
   border-radius: 30px;
+  max-width: 600px;
+  max-height: 300px;
 }

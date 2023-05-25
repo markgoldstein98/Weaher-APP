@@ -280,6 +280,9 @@ function getForecast() {
       const div = document.querySelector(".container");
       div.innerHTML = "";
 
+      const finalDay01 = document.createElement("section");
+      finalDay01.classList.add("day1-full-section");
+
       const day1 = document.createElement("div");
       day1.classList.add("day");
       day1.innerText = data.forecast.forecastday[0].date;
@@ -324,18 +327,17 @@ function getForecast() {
       day5.classList.add("day5");
       day5.innerText = data.forecast.forecastday[4].date;
 
-      container.append(
+      finalDay01.append(
         day1,
         day1Sunrise,
         day1Sunset,
         day1MinTemp,
         day1MaxTemp,
-        day1Cond,
-        day2,
-        day3,
-        day4,
-        day5
+        day1CondText,
+        day1Cond
       );
+
+      container.append(finalDay01, day2, day3, day4, day5);
       root.append(container);
     };
 
