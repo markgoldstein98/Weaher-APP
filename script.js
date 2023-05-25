@@ -210,9 +210,9 @@ function getPexelsPictures() {
         headers: { Authorization: PEXEL_API_KEY }, // a general functionnel ket parametert adtam meg ezért tudom itt a headers második paraméternek beadni
       }
     );
-    console.log(data.photos[5]);
+    console.log(data.photos[10]);
 
-    let backgroundImage = data.photos[5].src.large2x;
+    let backgroundImage = data.photos[10].src.large2x;
     root.style.backgroundImage = `url(${backgroundImage})`;
   });
 
@@ -280,6 +280,7 @@ function getForecast() {
       const div = document.querySelector(".container");
       div.innerHTML = "";
 
+      // first day data
       const finalDay01 = document.createElement("section");
       finalDay01.classList.add("day1-full-section");
 
@@ -311,18 +312,104 @@ function getForecast() {
       day1Cond.classList.add("day1-condition");
       day1Cond.src = data.forecast.forecastday[0].day.condition.icon;
 
+      // second day data
+      const finalDay02 = document.createElement("section");
+      finalDay02.classList.add("final-day2");
+
       const day2 = document.createElement("div");
       day2.classList.add("day2");
       day2.innerText = data.forecast.forecastday[1].date;
+
+      const day2Sunrise = document.createElement("div");
+      day2Sunrise.classList.add("day2-sunrise");
+      day2Sunrise.innerText = data.forecast.forecastday[1].astro.sunrise;
+
+      const day2Sunset = document.createElement("div");
+      day2Sunset.classList.add("day2-sunset");
+      day2Sunset.innerText = data.forecast.forecastday[1].astro.sunset;
+
+      const day2MinTemp = document.createElement("div");
+      day2MinTemp.classList.add("day2-mintemp");
+      day2MinTemp.innerText = data.forecast.forecastday[1].day.mintemp_c;
+
+      const day2MaxTemp = document.createElement("div");
+      day2MaxTemp.classList.add("day2-maxtemp");
+      day2MaxTemp.innerText = data.forecast.forecastday[1].day.maxtemp_c;
+
+      const day2CondText = document.createElement("div");
+      day2CondText.classList.add("day2-condtext");
+      day2CondText.innerText = data.forecast.forecastday[1].day.condition.text;
+
+      const day2Cond = document.createElement("img");
+      day2Cond.classList.add("day2-cond");
+      day2Cond.src = data.forecast.forecastday[1].day.condition.icon;
+
+      // third day data
+      const finalDay03 = document.createElement("section");
+      finalDay03.classList.add("final-day3");
 
       const day3 = document.createElement("div");
       day3.classList.add("day3");
       day3.innerText = data.forecast.forecastday[2].date;
 
+      const day3Sunrise = document.createElement("div");
+      day3Sunrise.classList.add("day3-sunrise");
+      day3Sunrise.innerText = data.forecast.forecastday[2].astro.sunrise;
+
+      const day3Sunset = document.createElement("div");
+      day3Sunset.classList.add("day3-sunset");
+      day3Sunset.innerText = data.forecast.forecastday[2].astro.sunset;
+
+      const day3MinTemp = document.createElement("div");
+      day3MinTemp.classList.add("day3-mintemp");
+      day3MinTemp.innerText = data.forecast.forecastday[2].day.mintemp_c;
+
+      const day3Maxtemp = document.createElement("div");
+      day3Maxtemp.classList.add("day3-maxtemp");
+      day3Maxtemp.innerText = data.forecast.forecastday[2].day.maxtemp_c;
+
+      const day3Condtext = document.createElement("div");
+      day3Condtext.classList.add("day3-condtext");
+      day3Condtext.innerText = data.forecast.forecastday[2].day.condition.text;
+
+      const day3Cond = document.createElement("img");
+      day3Cond.classList.add("day3-cond");
+      day3Cond.src = data.forecast.forecastday[2].day.condition.icon;
+
+      // fourth day data
+
+      const finalDay04 = document.createElement("section");
+      finalDay03.classList.add("final-day4");
+
       const day4 = document.createElement("div");
       day4.classList.add("day4");
       day4.innerText = data.forecast.forecastday[3].date;
 
+      const day4Sunrise = document.createElement("div");
+      day4Sunrise.classList.add("day4-sunrise");
+      day4Sunrise.innerText = data.forecast.forecastday[3].astro.sunrise;
+
+      const day4Sunset = document.createElement("div");
+      day4Sunset.classList.add("day4-sunset");
+      day4Sunset.innerText = data.forecast.forecastday[3].astro.sunset;
+
+      const day4MinTemp = document.createElement("div");
+      day4MinTemp.classList.add("day4-mintemp");
+      day4MinTemp.innerText = data.forecast.forecastday[3].day.mintemp_c;
+
+      const day4MaxTemp = document.createElement("div");
+      day4MaxTemp.classList.add("day4-maxtemp");
+      day4MaxTemp.innerText = data.forecast.forecastday[3].day.maxtemp_c;
+
+      const day4CondText = document.createElement("div");
+      day4CondText.classList.add("day4-cond");
+      day4CondText.innerText = data.forecast.forecastday[3].day.condition.text;
+
+      const day4Cond = document.createElement("img");
+      day4Cond.classList.add("day3-cond");
+      day4Cond.src = data.forecast.forecastday[3].day.condition.icon;
+
+      // fifth day data
       const day5 = document.createElement("div");
       day5.classList.add("day5");
       day5.innerText = data.forecast.forecastday[4].date;
@@ -337,7 +424,37 @@ function getForecast() {
         day1Cond
       );
 
-      container.append(finalDay01, day2, day3, day4, day5);
+      finalDay02.append(
+        day2,
+        day2Sunrise,
+        day2Sunset,
+        day2MinTemp,
+        day2MaxTemp,
+        day2CondText,
+        day2Cond
+      );
+
+      finalDay03.append(
+        day3,
+        day3Sunrise,
+        day3Sunset,
+        day3MinTemp,
+        day3Maxtemp,
+        day3Condtext,
+        day3Cond
+      );
+
+      finalDay04.append(
+        day4,
+        day4Sunrise,
+        day4Sunset,
+        day4MinTemp,
+        day4MaxTemp,
+        day4CondText,
+        day4Cond
+      );
+
+      container.append(finalDay01, finalDay02, finalDay03, finalDay04, day5);
       root.append(container);
     };
 
