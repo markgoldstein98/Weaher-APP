@@ -284,6 +284,30 @@ function getForecast() {
       day1.classList.add("day");
       day1.innerText = data.forecast.forecastday[0].date;
 
+      const day1Sunrise = document.createElement("div");
+      day1Sunrise.classList.add("day1-sunrise");
+      day1Sunrise.innerText = data.forecast.forecastday[0].astro.sunrise;
+
+      const day1Sunset = document.createElement("div");
+      day1Sunset.classList.add("day1-sunset");
+      day1Sunset.innerText = data.forecast.forecastday[0].astro.sunset;
+
+      const day1MinTemp = document.createElement("div");
+      day1MinTemp.classList.add("day1-mintemp");
+      day1MinTemp.innerHTML = data.forecast.forecastday[0].day.mintemp_c;
+
+      const day1MaxTemp = document.createElement("div");
+      day1MaxTemp.classList.add("day1-maxtemp");
+      day1MaxTemp.innerText = data.forecast.forecastday[0].day.maxtemp_c;
+
+      const day1CondText = document.createElement("div");
+      day1CondText.classList.add("day1-condtext");
+      day1CondText.innerText = data.forecast.forecastday[0].day.condition.text;
+
+      const day1Cond = document.createElement("img");
+      day1Cond.classList.add("day1-condition");
+      day1Cond.src = data.forecast.forecastday[0].day.condition.icon;
+
       const day2 = document.createElement("div");
       day2.classList.add("day2");
       day2.innerText = data.forecast.forecastday[1].date;
@@ -300,7 +324,18 @@ function getForecast() {
       day5.classList.add("day5");
       day5.innerText = data.forecast.forecastday[4].date;
 
-      container.append(day1, day2, day3, day4, day5);
+      container.append(
+        day1,
+        day1Sunrise,
+        day1Sunset,
+        day1MinTemp,
+        day1MaxTemp,
+        day1Cond,
+        day2,
+        day3,
+        day4,
+        day5
+      );
       root.append(container);
     };
 
