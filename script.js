@@ -262,6 +262,10 @@ function addToFavorites() {
 
 addToFavorites();
 
+const container = document.createElement("div");
+container.classList.add("container");
+root.append(container);
+
 function getForecast() {
   const input = document.querySelector("input");
 
@@ -272,7 +276,34 @@ function getForecast() {
         `http://api.weatherapi.com/v1/forecast.json?key=8be1860db359470181e104408231505&days=5&q=${API_CITY}`
       );
       console.log(data);
+
+      const div = document.querySelector(".container");
+      div.innerHTML = "";
+
+      const day1 = document.createElement("div");
+      day1.classList.add("day");
+      day1.innerText = data.forecast.forecastday[0].date;
+
+      const day2 = document.createElement("div");
+      day2.classList.add("day2");
+      day2.innerText = data.forecast.forecastday[1].date;
+
+      const day3 = document.createElement("div");
+      day3.classList.add("day3");
+      day3.innerText = data.forecast.forecastday[2].date;
+
+      const day4 = document.createElement("div");
+      day4.classList.add("day4");
+      day4.innerText = data.forecast.forecastday[3].date;
+
+      const day5 = document.createElement("div");
+      day5.classList.add("day5");
+      day5.innerText = data.forecast.forecastday[4].date;
+
+      container.append(day1, day2, day3, day4, day5);
+      root.append(container);
     };
+
     a();
   });
 }
