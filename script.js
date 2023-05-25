@@ -5,7 +5,6 @@ const PEXEL_API_KEY =
   "O9fOrILgaprmSC5L9R0sPBDbDbM8ag4kO7Er0SBCaXiUpZ8hV5AdSFIa";
 let PEXEL_QUERY = "Budapest";
 
-// general fetch történik
 async function getFetch(url, header) {
   const response = await fetch(url, header);
   const data = await response.json();
@@ -18,7 +17,6 @@ console.log(
   )
 );
 
-// létrehozzuk azt az elemet amit az oldal betöltésénél akarunk látni.
 function getElements() {
   let a = async function () {
     const response = await getFetch(
@@ -200,7 +198,6 @@ function inputCitySearch() {
   });
 }
 inputCitySearch();
-// Pexels által létrehozzunk képeket ha rányomunk az inputra és beütjük a várost.
 
 function getPexelsPictures() {
   const input = document.querySelector("input");
@@ -264,4 +261,19 @@ function addToFavorites() {
 }
 
 addToFavorites();
-// forecast event!!!
+
+function getForecast() {
+  const input = document.querySelector("input");
+
+  input.addEventListener("change", function (event) {
+    API_CITY = event.target.value;
+    let a = async function () {
+      let data = await getFetch(
+        `http://api.weatherapi.com/v1/forecast.json?key=8be1860db359470181e104408231505&days=5&q=${API_CITY}`
+      );
+      console.log(data);
+    };
+    a();
+  });
+}
+getForecast();
