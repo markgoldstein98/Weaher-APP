@@ -124,6 +124,31 @@ button:hover {
   margin-top: 20px;
   border: 1px solid whitesmoke;
   border-radius: 30px;
-  max-width: 600px;
-  max-height: 300px;
+  max-width: 550px;
+  max-height: 250px;
+}
+
+.day1-full-section {
+  letter-spacing: 1px;
+  line-height: 25px;
+}
+
+.final-day2 {
+  letter-spacing: 1px;
+  line-height: 25px;
+}
+
+.final-day3 {
+  letter-spacing: 1px;
+  line-height: 25px;
+}
+
+.final-day4 {
+  letter-spacing: 1px;
+  line-height: 25px;
+}
+
+.final-day5 {
+  letter-spacing: 1px;
+  line-height: 25px;
 }

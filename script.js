@@ -379,7 +379,7 @@ function getForecast() {
       // fourth day data
 
       const finalDay04 = document.createElement("section");
-      finalDay03.classList.add("final-day4");
+      finalDay04.classList.add("final-day4");
 
       const day4 = document.createElement("div");
       day4.classList.add("day4");
@@ -406,13 +406,41 @@ function getForecast() {
       day4CondText.innerText = data.forecast.forecastday[3].day.condition.text;
 
       const day4Cond = document.createElement("img");
-      day4Cond.classList.add("day3-cond");
+      day4Cond.classList.add("day4-cond");
       day4Cond.src = data.forecast.forecastday[3].day.condition.icon;
 
       // fifth day data
+
+      const finalDay05 = document.createElement("section");
+      finalDay05.classList.add("final-day5");
+
       const day5 = document.createElement("div");
       day5.classList.add("day5");
       day5.innerText = data.forecast.forecastday[4].date;
+
+      const day5Sunrise = document.createElement("div");
+      day5Sunrise.classList.add("day5-sunrise");
+      day5Sunrise.innerText = data.forecast.forecastday[4].astro.sunrise;
+
+      const day5Sunset = document.createElement("div");
+      day5Sunset.classList.add("day5-sunset");
+      day5Sunset.innerText = data.forecast.forecastday[4].astro.sunset;
+
+      const day5MinTemp = document.createElement("div");
+      day5MinTemp.classList.add("day5-mintemp");
+      day5MinTemp.innerText = data.forecast.forecastday[4].day.mintemp_c;
+
+      const day5MaxTemp = document.createElement("div");
+      day5MaxTemp.classList.add("day5-maxtemp");
+      day5MaxTemp.innerText = data.forecast.forecastday[4].day.maxtemp_c;
+
+      const day5CondText = document.createElement("div");
+      day5CondText.classList.add("day5-cond");
+      day5CondText.innerText = data.forecast.forecastday[4].day.condition.text;
+
+      const day5Cond = document.createElement("img");
+      day5Cond.classList.add("day5-cond");
+      day5Cond.src = data.forecast.forecastday[4].day.condition.icon;
 
       finalDay01.append(
         day1,
@@ -454,7 +482,23 @@ function getForecast() {
         day4Cond
       );
 
-      container.append(finalDay01, finalDay02, finalDay03, finalDay04, day5);
+      finalDay05.append(
+        day5,
+        day5Sunrise,
+        day5Sunset,
+        day5MinTemp,
+        day5MaxTemp,
+        day5CondText,
+        day5Cond
+      );
+
+      container.append(
+        finalDay01,
+        finalDay02,
+        finalDay03,
+        finalDay04,
+        finalDay05
+      );
       root.append(container);
     };
 
