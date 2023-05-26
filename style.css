@@ -13,6 +13,7 @@
   color: whitesmoke;
   min-width: 700px;
   background-size: cover;
+  position: relative;
 }
 
 label {
@@ -125,7 +126,7 @@ button:hover {
   border: 1px solid whitesmoke;
   border-radius: 30px;
   max-width: 550px;
-  max-height: 250px;
+  max-height: 270px;
 }
 
 .day1-full-section {
