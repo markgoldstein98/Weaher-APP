@@ -210,9 +210,9 @@ function getPexelsPictures() {
         headers: { Authorization: PEXEL_API_KEY }, // a general functionnel ket parametert adtam meg ezért tudom itt a headers második paraméternek beadni
       }
     );
-    console.log(data.photos[10]);
+    console.log(data.photos[8]);
 
-    let backgroundImage = data.photos[10].src.large2x;
+    let backgroundImage = data.photos[3].src.large2x;
     root.style.backgroundImage = `url(${backgroundImage})`;
   });
 
