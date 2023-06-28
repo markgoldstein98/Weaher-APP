@@ -378,7 +378,7 @@ function getForecast() {
 
       // fourth day data
 
-      const finalDay04 = document.createElement("section");
+      /* const finalDay04 = document.createElement("section");
       finalDay04.classList.add("final-day4");
 
       const day4 = document.createElement("div");
@@ -440,8 +440,7 @@ function getForecast() {
 
       const day5Cond = document.createElement("img");
       day5Cond.classList.add("day5-cond");
-      day5Cond.src = data.forecast.forecastday[4].day.condition.icon;
-
+      day5Cond.src = data.forecast.forecastday[4].day.condition.icon; */
       finalDay01.append(
         day1,
         day1Sunrise,
@@ -472,7 +471,7 @@ function getForecast() {
         day3Cond
       );
 
-      finalDay04.append(
+      /* finalDay04.append(
         day4,
         day4Sunrise,
         day4Sunset,
@@ -490,14 +489,14 @@ function getForecast() {
         day5MaxTemp,
         day5CondText,
         day5Cond
-      );
+      ); */
 
       container.append(
         finalDay01,
         finalDay02,
-        finalDay03,
-        finalDay04,
-        finalDay05
+        finalDay03
+        /*   finalDay04,
+        finalDay05 */
       );
       root.append(container);
     };
