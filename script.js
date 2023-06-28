@@ -290,23 +290,28 @@ function getForecast() {
 
       const day1Sunrise = document.createElement("div");
       day1Sunrise.classList.add("day1-sunrise");
-      day1Sunrise.innerText = data.forecast.forecastday[0].astro.sunrise;
+      day1Sunrise.innerText =
+        " Sunrise: " + data.forecast.forecastday[0].astro.sunrise;
 
       const day1Sunset = document.createElement("div");
       day1Sunset.classList.add("day1-sunset");
-      day1Sunset.innerText = data.forecast.forecastday[0].astro.sunset;
+      day1Sunset.innerText =
+        " Sunset: " + data.forecast.forecastday[0].astro.sunset;
 
       const day1MinTemp = document.createElement("div");
       day1MinTemp.classList.add("day1-mintemp");
-      day1MinTemp.innerHTML = data.forecast.forecastday[0].day.mintemp_c;
+      day1MinTemp.innerHTML =
+        " Min. Temp:" + data.forecast.forecastday[0].day.mintemp_c;
 
       const day1MaxTemp = document.createElement("div");
       day1MaxTemp.classList.add("day1-maxtemp");
-      day1MaxTemp.innerText = data.forecast.forecastday[0].day.maxtemp_c;
+      day1MaxTemp.innerText =
+        " Max.Temp: " + data.forecast.forecastday[0].day.maxtemp_c;
 
       const day1CondText = document.createElement("div");
       day1CondText.classList.add("day1-condtext");
-      day1CondText.innerText = data.forecast.forecastday[0].day.condition.text;
+      day1CondText.innerText =
+        " Condition: " + data.forecast.forecastday[0].day.condition.text;
 
       const day1Cond = document.createElement("img");
       day1Cond.classList.add("day1-condition");
@@ -322,23 +327,28 @@ function getForecast() {
 
       const day2Sunrise = document.createElement("div");
       day2Sunrise.classList.add("day2-sunrise");
-      day2Sunrise.innerText = data.forecast.forecastday[1].astro.sunrise;
+      day2Sunrise.innerText =
+        " Sunrise: " + data.forecast.forecastday[1].astro.sunrise;
 
       const day2Sunset = document.createElement("div");
       day2Sunset.classList.add("day2-sunset");
-      day2Sunset.innerText = data.forecast.forecastday[1].astro.sunset;
+      day2Sunset.innerText =
+        " Sunset: " + data.forecast.forecastday[1].astro.sunset;
 
       const day2MinTemp = document.createElement("div");
       day2MinTemp.classList.add("day2-mintemp");
-      day2MinTemp.innerText = data.forecast.forecastday[1].day.mintemp_c;
+      day2MinTemp.innerText =
+        " Min.Temp: " + data.forecast.forecastday[1].day.mintemp_c;
 
       const day2MaxTemp = document.createElement("div");
       day2MaxTemp.classList.add("day2-maxtemp");
-      day2MaxTemp.innerText = data.forecast.forecastday[1].day.maxtemp_c;
+      day2MaxTemp.innerText =
+        " Max.Temp: " + data.forecast.forecastday[1].day.maxtemp_c;
 
       const day2CondText = document.createElement("div");
       day2CondText.classList.add("day2-condtext");
-      day2CondText.innerText = data.forecast.forecastday[1].day.condition.text;
+      day2CondText.innerText =
+        " Condition: " + data.forecast.forecastday[1].day.condition.text;
 
       const day2Cond = document.createElement("img");
       day2Cond.classList.add("day2-cond");
@@ -354,23 +364,28 @@ function getForecast() {
 
       const day3Sunrise = document.createElement("div");
       day3Sunrise.classList.add("day3-sunrise");
-      day3Sunrise.innerText = data.forecast.forecastday[2].astro.sunrise;
+      day3Sunrise.innerText =
+        " Sunrise: " + data.forecast.forecastday[2].astro.sunrise;
 
       const day3Sunset = document.createElement("div");
       day3Sunset.classList.add("day3-sunset");
-      day3Sunset.innerText = data.forecast.forecastday[2].astro.sunset;
+      day3Sunset.innerText =
+        " Sunset: " + data.forecast.forecastday[2].astro.sunset;
 
       const day3MinTemp = document.createElement("div");
       day3MinTemp.classList.add("day3-mintemp");
-      day3MinTemp.innerText = data.forecast.forecastday[2].day.mintemp_c;
+      day3MinTemp.innerText =
+        " Min.Temp: " + data.forecast.forecastday[2].day.mintemp_c;
 
       const day3Maxtemp = document.createElement("div");
       day3Maxtemp.classList.add("day3-maxtemp");
-      day3Maxtemp.innerText = data.forecast.forecastday[2].day.maxtemp_c;
+      day3Maxtemp.innerText =
+        " Max.Temp: " + data.forecast.forecastday[2].day.maxtemp_c;
 
       const day3Condtext = document.createElement("div");
       day3Condtext.classList.add("day3-condtext");
-      day3Condtext.innerText = data.forecast.forecastday[2].day.condition.text;
+      day3Condtext.innerText =
+        " Condition " + data.forecast.forecastday[2].day.condition.text;
 
       const day3Cond = document.createElement("img");
       day3Cond.classList.add("day3-cond");
